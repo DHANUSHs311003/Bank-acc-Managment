@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank account</title>
+</head>
+<body>
+    <h1>BANK ACCOUNT</h1>
+</body>
+<script>
+function BankAccount (accountNumber,name,type,balance) {
+  this.accountNumber = accountNumber;
+  this.name = name;
+  this.type = type;
+  this.balance = balance;
+
+  this.deposite = function(amt) {
+    this.balance +=amt;
+  }
+
+  this.withdraw = function(amt) {
+    if (amt <= this.balance) {
+      console.log(`Successfully withdraw ${amt}`)
+    }
+    else {
+      console.log("Insufficient balance to withdraw")
+    }
+  }
+
+  this.checkBalance = function() {
+    console.log(`Your Account Balance is: ${this.balance}`);
+  }
+
+  this.isActive = function () {
+    if(this.balance >=1000) {
+      console.log(`Your Account is Active`);
+    }
+
+    else {
+      console.log(`Your Account is Inactive`);
+    }
+  }
+
+};
+
+let acc1 = new BankAccount(112345456,"Dhanush","savings",1000);
+let acc2 = new BankAccount(112345438,"suresh","savings",800);
+let acc3 = new BankAccount(112345356,"raman","savings",200);
+console.log(acc2)
+
+</script>
+</html>
