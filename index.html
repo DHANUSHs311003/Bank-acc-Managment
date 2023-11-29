@@ -35,20 +35,47 @@ function BankAccount (accountNumber,name,type,balance) {
 
   this.isActive = function () {
     if(this.balance >=1000) {
-      console.log(`Your Account is Active`);
+      return true
     }
 
     else {
-      console.log(`Your Account is Inactive`);
+      return false
     }
   }
+
 
 };
 
 let acc1 = new BankAccount(112345456,"Dhanush","savings",1000);
-let acc2 = new BankAccount(112345438,"suresh","savings",800);
+let acc2 = new BankAccount(112345438,"suresh","savings",1200);
 let acc3 = new BankAccount(112345356,"raman","savings",200);
-console.log(acc2)
+
+acc1.checkBalance();
+acc2.checkBalance();
+acc3.checkBalance();
+
+acc1.deposite(1200);
+acc2.deposite(800);
+acc3.deposite(200);
+
+acc1.withdraw(400);
+acc1.withdraw(200);
+acc1.withdraw(100);
+
+
+accounts =  [acc1, acc2, acc3];
+
+function getTotalBalance(accounts) {
+  total=0;
+  for (let i=0; i < accounts.length; i++) {
+    if(accounts[i].isActive()) {
+       total += accounts[i].balance;
+    }
+  }
+  console.log(` The total balance of all active accounts are ${total}`);
+}
+
+getTotalBalance(accounts);
 
 </script>
 </html>
