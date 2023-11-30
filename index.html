@@ -32,7 +32,7 @@ function BankAccount (accountNumber,name,type,balance) {
   this.checkBalance = function() {
     console.log(`Your Account Balance is: ${this.balance}`);
   }
-
+// On the basis of minimum balance i have decided to check wheather an account is active or not.
   this.isActive = function () {
     if(this.balance >=1000) {
       return true
